@@ -3,6 +3,7 @@ import '@/styles/globals.css'
 import Header from './components/Layout/Header.js'
 import Meals from './components/Meals/Meals.js';
 import Cart from './components/Cart/Cart.js';
+import CartProvider from './store/CartProvider'
 
 export default function App({ Component, pageProps }) {
 
@@ -17,12 +18,13 @@ export default function App({ Component, pageProps }) {
   }
 
   return(
-    <Fragment>
-      {cartIsShown && <Cart />}
+    <CartProvider>
+      
+      {cartIsShown && <Cart onClose={hideCartHandler}/>}
       <Header onShowCart={showCartHandler} />
       <main>
         <Meals />
       </main>
-    </Fragment>
+    </CartProvider>
   )
 }

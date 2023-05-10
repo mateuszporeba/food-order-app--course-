@@ -5,14 +5,9 @@ import Image from 'next/image'
 import mealsImage from '../../assets/meals.jpg';
 import classes from './Header.module.css';
 import HeaderCartButton from './HeaderCartButton';
-/* <Image
-src={mealsImage}
-alt="Table full of delicious food!"
-width="100%"
-height="5rem"
-/> */
+
 export default function Header(props) {
-    
+
     return (
         <Fragment>
             <header className={classes.header}>
