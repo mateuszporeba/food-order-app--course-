@@ -87,6 +87,7 @@ const AvailableMeals = () => {
 
   const [meals, setMeals] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [httpError, sethttpError] = useState(false);
 
   useEffect(() => {
     // const fetchMeals1 = async () => {
@@ -102,7 +103,7 @@ const AvailableMeals = () => {
       const loadedMeals = [];
       const dbRef = ref(getDatabase());
 
-      get(child(dbRef, 'meals')).then((snapshot) => {
+      get(child(dbRef, 'mealss')).then((snapshot) => {
         if (snapshot.exists()) {
           const responseData = snapshot.val();
           for (const key in responseData) {
@@ -114,20 +115,30 @@ const AvailableMeals = () => {
             })
           }
           setMeals(loadedMeals);
-          //setIsLoading(false);
+          setIsLoading(false);
         } else {
           console.log("No data available");
+          sethttpError(true);
         }
       }).catch((error) => {
         console.error(error);
+
       });
     };
     fetchMeals();
   }, [])
 
+if(httpError){
+  return (
+    <section className={classes.httpError}>
+   <p>Problem with connection to database</p>
+  </section>
+  )
+}
+
   if (isLoading) {
     return (
-      <section className={classes.mealsLoading}>
+      <section>
         <div class={classes['lds-roller']}><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
       </section>
     )

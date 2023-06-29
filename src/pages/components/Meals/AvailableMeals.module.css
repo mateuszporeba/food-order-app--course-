@@ -6,11 +6,13 @@
 }
 
 /* --------Nice Meals Loading------------------- */
+.httpError{
+  margin: 2rem auto;
+  color: red;
+  text-align: center;
+}
+
 .lds-roller {
-  /* display: inline-block;
-  position: relative; */
-  max-width: 60rem;
-  width: 90%;
   margin: 2rem auto;
   width: 80px;
   height: 80px;
