@@ -103,7 +103,7 @@ const AvailableMeals = () => {
       const loadedMeals = [];
       const dbRef = ref(getDatabase());
 
-      get(child(dbRef, 'mealss')).then((snapshot) => {
+      get(child(dbRef, 'meals')).then((snapshot) => {
         if (snapshot.exists()) {
           const responseData = snapshot.val();
           for (const key in responseData) {

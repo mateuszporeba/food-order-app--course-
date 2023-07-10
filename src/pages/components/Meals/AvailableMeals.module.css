@@ -5,13 +5,13 @@
   animation: meals-appear 1s ease-out forwards;
 }
 
-/* --------Nice Meals Loading------------------- */
 .httpError{
   margin: 2rem auto;
   color: red;
   text-align: center;
 }
 
+/* --------Nice Meals Loading------------------- */
 .lds-roller {
   margin: 2rem auto;
   width: 80px;
